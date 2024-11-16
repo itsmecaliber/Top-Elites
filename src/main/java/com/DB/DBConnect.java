@@ -10,12 +10,12 @@ public class DBConnect {
             // Load the MySQL driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Get database connection details from environment variables
-            String dbHost = System.getenv("mysql.railway.internal"); // e.g., your-database-name.up.railway.app
-            String dbPort = System.getenv("3306"); // e.g., 3306
-            String dbName = System.getenv("railway"); // e.g., top-elites
-            String dbUsername = System.getenv("root"); // e.g., root
-            String dbPassword = System.getenv("vYLMJBsqMTioPIDvnPQnBacvCukPtccj"); // e.g., your-password
+            // Get the database connection details from Railway environment variables
+            String dbHost = System.getenv("MYSQL_HOST"); // Railway internal MySQL host
+            String dbPort = System.getenv("MYSQL_PORT"); // Port for MySQL, usually 3306
+            String dbName = System.getenv("MYSQL_DATABASE"); // Name of the database (e.g., top-elites)
+            String dbUsername = System.getenv("MYSQL_USER"); // Username (e.g., root)
+            String dbPassword = System.getenv("MYSQL_PASSWORD"); // Password for the MySQL instance
 
             // Construct the connection URL
             String url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
